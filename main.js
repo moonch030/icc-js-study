@@ -1,43 +1,41 @@
-const user = {
-	name: 'moon',
-	age: 22,
-	tel: "010-1234-5678"
-}
+class Kpop {
+	constructor() {
+	  this.singerName = null; // 가수 이름
+	  this.releaseDate = null; // 발매일
+	  this.members = null; // 멤버 수
+	}
+	
+	get fullname() { //getter로 값 받아옴
+	  return `${this.singerName} ${this.releaseDate} ${this.members}`;
+	}
+  
+	set reset(value) { //setter로 값 설정
+	  [this.singerName, this.releaseDate, this.members] = value.split(' '); //공백 기준으로 split
+	}
+  }
+  
+  class SuperShy extends Kpop { //supershy클래스는 kpop클래스 상속받음
+	constructor() {
+	  super(); //부모 클래스 생성자 호출
+	  this.leaderName = null; //leaderName 속성 추가
+	}
+  
+	sing() {
+	  console.log("super shy~ super shy~"); // super shy~ super shy~ 노래 부르는중
+	}
+  }
+  
+  const supershy = new SuperShy(); // 객체 생성
+  supershy.reset = "NewJeans 2023.07.21 5";  //setter 메서드를 이용해 값 설정
+  supershy.leaderName = "민지"; // leaderName 민지로 값 설정
 
-function getName(user){ // 함수의 매개변수에 user객체 받음
-	return user.name // moon 반환
-}
-
-console.log(getName(user)); // moon
-
-//구조분해할당
-function getAge(user){ // user객체 받음
-	const {age} = user
-	return age // 22
-}
-
-console.log(getAge(user)); // 22
-
-
-function getTel({tel = "전화번호 없음"}){ 
-//tel이라는 키가 없을때 tel = "전화번호 없음" 라고 생성(저장) 후 출력
-//있으면 원래 키의 벨류값 출력
-	return tel
-}
-function getAddress({address = "서울시 금천구"}){
-	return address
-}
-
-console.log(getTel(user)); //010-1234-5678
-console.log(getAddress(user)); // 서울시 금천구
-
-const str = ["안녕","반가워","고마워"]
-function getStr(str){
-	return str[2];
-}
-function getStr1([a,,b]){
-	return a
-}
-console.log(str);
-console.log(getStr(str));
-console.log(getStr1(str));
+  console.log("\nSuperShy 인스턴스 정보:");
+  console.log("가수 이름:", supershy.singerName);
+  console.log("발매일:", supershy.releaseDate);
+  console.log("멤버 수:", supershy.members);
+  console.log("소속 그룹 리더명:", supershy.leaderName);
+  
+  console.log(supershy);
+  
+  supershy.sing();
+  
