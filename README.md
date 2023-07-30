@@ -1,20 +1,18 @@
 ```javaScript
-class Kpop {
+class Kpop { // 클래스 생성
 	constructor() {
 	  this.singerName = null; // 가수 이름
 	  this.releaseDate = null; // 발매일
 	  this.members = null; // 멤버 수
-	}
-	
-	get fullname() { //getter로 값 받아옴
-	  return `${this.singerName} ${this.releaseDate} ${this.members}`;
 	}
   
 	set reset(value) { //setter로 값 설정
 	  [this.singerName, this.releaseDate, this.members] = value.split(' '); //공백 기준으로 split
 	}
   }
-  
+
+const k_pop = new Kpop(); // 객체 생성
+
   class SuperShy extends Kpop { //supershy클래스는 kpop클래스 상속받음
 	constructor() {
 	  super(); //부모 클래스 생성자 호출
@@ -35,9 +33,7 @@ class Kpop {
   console.log("발매일:", supershy.releaseDate);
   console.log("멤버 수:", supershy.members);
   console.log("소속 그룹 리더명:", supershy.leaderName);
-  
-  console.log(supershy);
-  
   supershy.sing();
+  console.log(supershy);
   
 ```
