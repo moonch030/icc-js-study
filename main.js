@@ -13,9 +13,9 @@ class Kpop {
   const k_pop = new Kpop(); // 객체 생성
   
   class SuperShy extends Kpop { //supershy클래스는 kpop클래스 상속받음
-	constructor() {
+	constructor(leaderName) {
 	  super(); //부모 클래스 생성자 호출
-	  this.leaderName = null; //leaderName 속성 추가
+	  this.leaderName = leaderName; //leaderName 속성 추가
 	}
   
 	sing() {
