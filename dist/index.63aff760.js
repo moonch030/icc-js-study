@@ -574,36 +574,56 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"adjPd":[function(require,module,exports) {
-class Kpop {
-    constructor(){
-        this.singerName = null; // 가수 이름
-        this.releaseDate = null; // 발매일
-        this.members = null; // 멤버 수
+const numbers = [
+    4,
+    102,
+    2,
+    30,
+    13,
+    20
+];
+numbers.push(32) // 32 추가
+;
+console.log(numbers);
+numbers.sort((a, b)=>{
+    return a - b; // 오름차순으로 배열 정리
+});
+numbers.forEach((number)=>{
+    console.log(number); // 하나씩 콘솔 출력
+});
+const users = [
+    {
+        name: "윤병현",
+        age: 24,
+        class: "1반"
+    },
+    {
+        name: "문채현",
+        age: 22,
+        class: "1반"
+    },
+    {
+        name: "최진영",
+        age: 21,
+        class: "2반"
+    },
+    {
+        name: "이윤수",
+        age: 20,
+        class: "2반"
     }
-    set reset(value) {
-        [this.singerName, this.releaseDate, this.members] = value.split(" "); //공백 기준으로 split
-    }
-}
-const k_pop = new Kpop(); // 객체 생성
-class SuperShy extends Kpop {
-    constructor(leaderName){
-        super(); //부모 클래스 생성자 호출
-        this.leaderName = leaderName; //leaderName 속성 추가
-    }
-    sing() {
-        console.log("super shy~ super shy~"); // super shy~ super shy~ 노래 부르는중
-    }
-}
-const supershy = new SuperShy(); // 객체 생성
-supershy.reset = "NewJeans 2023.07.21 5"; //setter 메서드를 이용해 값 설정
-supershy.leaderName = "민지"; // leaderName 민지로 값 설정
-console.log("\nSuperShy 인스턴스 정보:");
-console.log("가수 이름:", supershy.singerName);
-console.log("발매일:", supershy.releaseDate);
-console.log("멤버 수:", supershy.members);
-console.log("소속 그룹 리더명:", supershy.leaderName);
-supershy.sing();
-console.log(supershy);
+];
+const userData = users.filter((user)=>user.age > 21 && user.class === "1반"); //주어진 콜백 테스트를 통과하는 모든 요소를 새로운 배열로 반환
+console.log(userData);
+const userData1 = userData.map((user)=>({
+        ...user,
+        name: "윤병현",
+        age: 24,
+        class: "1반",
+        email: "1234@naver.com",
+        tel: "010-1234-5678"
+    }));
+console.log(userData1);
 
 },{}]},["lmKb7","adjPd"], "adjPd", "parcelRequire6965")
 
