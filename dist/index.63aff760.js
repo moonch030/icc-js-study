@@ -574,56 +574,50 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"adjPd":[function(require,module,exports) {
-const numbers = [
-    4,
-    102,
-    2,
-    30,
-    13,
-    20
-];
-numbers.push(32) // 32 추가
-;
-console.log(numbers);
-numbers.sort((a, b)=>{
-    return a - b; // 오름차순으로 배열 정리
-});
-numbers.forEach((number)=>{
-    console.log(number); // 하나씩 콘솔 출력
-});
-const users = [
-    {
-        name: "윤병현",
-        age: 24,
-        class: "1반"
-    },
-    {
-        name: "문채현",
-        age: 22,
-        class: "1반"
-    },
-    {
-        name: "최진영",
-        age: 21,
-        class: "2반"
-    },
-    {
-        name: "이윤수",
-        age: 20,
-        class: "2반"
-    }
-];
-const userData = users.filter((user)=>user.age > 21 && user.class === "1반"); //주어진 콜백 테스트를 통과하는 모든 요소를 새로운 배열로 반환
-console.log(userData);
-const userData1 = userData.map((user)=>({
-        ...user,
-        name: "윤병현",
-        age: 24,
-        class: "1반",
-        email: "1234@naver.com",
-        tel: "010-1234-5678"
-    }));
-console.log(userData1);
+var _moduleJs = require("./module.js");
+console.log(_moduleJs);
+
+},{"./module.js":"dxpzB"}],"dxpzB":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "str", ()=>str);
+parcelHelpers.export(exports, "name", ()=>name);
+parcelHelpers.export(exports, "arr", ()=>arr);
+parcelHelpers.export(exports, "hello", ()=>hello);
+const str = "hello";
+const name = "moon";
+const arr = [];
+const hello = ()=>{};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["lmKb7","adjPd"], "adjPd", "parcelRequire6965")
 
