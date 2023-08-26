@@ -574,50 +574,19 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"adjPd":[function(require,module,exports) {
-var _moduleJs = require("./module.js");
-console.log(_moduleJs);
-
-},{"./module.js":"dxpzB"}],"dxpzB":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "str", ()=>str);
-parcelHelpers.export(exports, "name", ()=>name);
-parcelHelpers.export(exports, "arr", ()=>arr);
-parcelHelpers.export(exports, "hello", ()=>hello);
-const str = "hello";
-const name = "moon";
-const arr = [];
-const hello = ()=>{};
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || dest.hasOwnProperty(key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
+const getMovies = (movieName)=>{
+    return new Promise((resolve, reject)=>{
+        fetch(`http://www.omdbapi.com/?apikey=7035c60c&s=${movieName}`).then((res)=>res.json()).then((res)=>{
+            if (res.Response === "False") reject(res.Error);
+            resolve(res);
         });
     });
-    return dest;
 };
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
+getMovies("avengers").then((movies)=>{
+    console.log("영화 목록:", movies);
+}).catch((error)=>{
+    console.log("에러 발생:", error);
+});
 
 },{}]},["lmKb7","adjPd"], "adjPd", "parcelRequire6965")
 
